@@ -124,7 +124,7 @@ public class ChooseAreaFragment extends Fragment {
     //查询选中省所有的城市，优先从数据库中查询，如果数据库中没有再去服务器上查询
     private void queryCities(){
         titleText.setText(selectedProvince.getProvinceName());
-        backButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.VISIBLE);
         cityList=DataSupport.where("provinceid = ?",String.valueOf(selectedProvince.getId())).find(City.class);
         if (cityList.size()>0){
             dataList.clear();
@@ -144,7 +144,7 @@ public class ChooseAreaFragment extends Fragment {
     //查询选中市所有的县，优先从数据库中查询，如果数据库中没有再去服务器上查询
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
-        backButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.VISIBLE);
         countyList=DataSupport.where("cityid = ?",String.valueOf(selectedCity.getId())).find(County.class);
         if (countyList.size()>0){
             dataList.clear();
